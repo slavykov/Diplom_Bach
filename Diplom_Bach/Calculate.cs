@@ -11,11 +11,11 @@ namespace Diplom_Bach
     internal class Calculate
     {
         // функция для первого этапа вычислений
-        public void FirstStepCalculate(List<int> cmas, List<int> gx, List<int> fc, List<int> xc, int rows)
+        public void FirstStepCalculate(List<int> c, List<int> gx, List<int> fc, List<int> xc, int rows)
         {
             for (int i = 0; i < rows; i++)
             {
-                xc[i] = cmas[i];
+                xc[i] = c[i];
             }
 
             for(int i = 0; i < rows; i++)
