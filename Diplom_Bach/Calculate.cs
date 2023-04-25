@@ -24,11 +24,34 @@ namespace Diplom_Bach
             }
         }
 
-        public void SecondStepCalculate(List<int> fc,int rows, List<int> x1)
+        public void SecondStepCalculate(List<int> fc, List<int> x,List<int> cUp, List<int> cLeft, List<int> fccount,List<int> gx, int rows)
         {
-            for(int i=0;i<rows;i++)
+            for (int i = 0; i < rows; i++)
             {
-                x1.Add(fc[i] + 0);
+                x.Add(fc[i] + 0);
+            }
+
+            int indexOfgx = rows;
+
+            
+            int b = 0;
+            for (int i = 1; i < cUp.Count; i++)
+            {
+                for (int j = 0; j < cLeft.Count; j++)
+                {
+                    if (cUp[i] <= cLeft[j])
+                    {
+                        x.Add(gx[indexOfgx] + fccount[b]);
+                        b++;
+                    }
+                    else
+                    {
+                        x.Add(0);
+                        b = 0;
+                    }
+                
+                }
+                indexOfgx++;
             }
         }
 

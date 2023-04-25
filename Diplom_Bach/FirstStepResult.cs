@@ -140,7 +140,7 @@ namespace Diplom_Bach
 
         private void btnNextStep_Click(object sender, EventArgs e)
         {
-            NextStepResult nsR = new NextStepResult(c,fc,columns,rows);
+            NextStepResult nsR = new NextStepResult(c,fc,gx,columns,rows);
             nsR.Show();
         }
     }
