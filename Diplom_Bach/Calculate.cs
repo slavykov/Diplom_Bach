@@ -24,14 +24,14 @@ namespace Diplom_Bach
             }
         }
 
-        public void SecondStepCalculate(List<int> fc, List<int> x,List<int> cUp, List<int> cLeft, List<int> fccount,List<int> gx, int rows)
+        public void SecondStepCalculate(List<int> fc, List<int> x,List<int> cUp, List<int> cLeft, List<int> fccount,List<int> gx, int rows,int indexOfgx)
         {
             for (int i = 0; i < rows; i++)
             {
                 x.Add(fc[i] + 0);
             }
 
-            int indexOfgx = rows;
+            
 
             
             int b = 0;
@@ -52,6 +52,26 @@ namespace Diplom_Bach
                 
                 }
                 indexOfgx++;
+            }
+        }
+
+        public void findMaxinRows(DataGridView dgV,List<int> xc, List<int> fc,List<int> cUp,int rows, int columns)
+        {
+            int maxinRows = (int)dgV.Rows[1].Cells[1].Value;
+            int indexofMax = 0;
+            for (int i = 1; i < rows + 1; i++)
+            {
+                for (int j = 1; j < columns + 1; j++)
+                {
+                    if ((int)dgV.Rows[i].Cells[j].Value > maxinRows)
+                    {
+                        maxinRows = (int)dgV.Rows[i].Cells[j].Value;
+                        indexofMax = j;
+                    }
+
+                }
+                xc.Add(cUp[indexofMax - 1]);
+                fc.Add(maxinRows);
             }
         }
 

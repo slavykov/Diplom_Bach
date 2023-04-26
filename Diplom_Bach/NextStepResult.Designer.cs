@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dGVMain = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvOther = new System.Windows.Forms.DataGridView();
             this.btnNextStepResult = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOther)).BeginInit();
             this.SuspendLayout();
             // 
             // dGVMain
@@ -51,15 +51,19 @@
             this.dGVMain.Size = new System.Drawing.Size(474, 377);
             this.dGVMain.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvOther
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(548, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(227, 377);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvOther.AllowUserToAddRows = false;
+            this.dgvOther.AllowUserToDeleteRows = false;
+            this.dgvOther.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvOther.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOther.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOther.Location = new System.Drawing.Point(548, 43);
+            this.dgvOther.Name = "dgvOther";
+            this.dgvOther.RowHeadersWidth = 51;
+            this.dgvOther.RowTemplate.Height = 24;
+            this.dgvOther.Size = new System.Drawing.Size(227, 377);
+            this.dgvOther.TabIndex = 1;
             // 
             // btnNextStepResult
             // 
@@ -85,14 +89,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnNextStepResult);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvOther);
             this.Controls.Add(this.dGVMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "NextStepResult";
             this.Text = "NextStepResult";
             ((System.ComponentModel.ISupportInitialize)(this.dGVMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOther)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,7 +105,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dGVMain;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOther;
         private System.Windows.Forms.Button btnNextStepResult;
         private System.Windows.Forms.TextBox textBox1;
     }
