@@ -37,7 +37,6 @@
             this.InputGroupBox = new System.Windows.Forms.GroupBox();
             this.btnDatafromdgV = new System.Windows.Forms.Button();
             this.btnShowCalculate = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridInput)).BeginInit();
             this.InputGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -131,19 +130,11 @@
             this.btnShowCalculate.UseVisualStyleBackColor = true;
             this.btnShowCalculate.Click += new System.EventHandler(this.btnShowCalculate_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 303);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 22);
-            this.textBox1.TabIndex = 10;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 474);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnShowCalculate);
             this.Controls.Add(this.btnDatafromdgV);
             this.Controls.Add(this.InputGroupBox);
@@ -156,7 +147,6 @@
             this.InputGroupBox.ResumeLayout(false);
             this.InputGroupBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -171,7 +161,6 @@
         private System.Windows.Forms.GroupBox InputGroupBox;
         private System.Windows.Forms.Button btnDatafromdgV;
         private System.Windows.Forms.Button btnShowCalculate;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

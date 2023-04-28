@@ -16,11 +16,11 @@ namespace Diplom_Bach
     {
         MainForm mForm = new MainForm();
         Calculate calc = new Calculate();
-
+        NextStepResult nsR;
         List<int> c;
         List<int> gx;
-        List<int> fc;
-        List<int> xc;
+        List<int> f1c;
+        List<int> x1c;
         int rows;
         int columns;
 
@@ -37,8 +37,8 @@ namespace Diplom_Bach
             this.gx = gx;
             this.rows = rows; 
             this.columns = columns;
-            fc = new List<int>();
-            xc = new List<int>();
+            f1c = new List<int>();
+            x1c = new List<int>();
         }
 
         // Функция для добавления данных в меньший dgV
@@ -127,10 +127,10 @@ namespace Diplom_Bach
             SetCtoDGV(dgVresMain, rows,c,0,0,true);
             SetGx(dgVresMain,gx, rows, columns);
 
-            AddFcXc(fc, xc, rows,0);
-            calc.FirstStepCalculate(c, gx, fc, xc, rows);
+            AddFcXc(f1c, x1c, rows,0);
+            calc.FirstStepCalculate(c, gx, f1c, x1c, rows);
 
-            SetFcXctoDGV(dgVresOth, rows, fc, xc);
+            SetFcXctoDGV(dgVresOth, rows, f1c, x1c);
         }
 
         private void btnBackToMain_Click(object sender, EventArgs e)
@@ -138,10 +138,17 @@ namespace Diplom_Bach
 
         }
 
+
         private void btnNextStep_Click(object sender, EventArgs e)
         {
-            NextStepResult nsR = new NextStepResult(c,fc,gx,columns,rows);
-            nsR.Show();
+           
+                nsR = new NextStepResult(c, f1c, gx, columns, rows,x1c);
+                nsR.Show();
+               
         }
+
+        
+
+        
     }
 }

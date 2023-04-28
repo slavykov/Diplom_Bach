@@ -31,7 +31,6 @@
             this.dGVMain = new System.Windows.Forms.DataGridView();
             this.dgvOther = new System.Windows.Forms.DataGridView();
             this.btnNextStepResult = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOther)).BeginInit();
             this.SuspendLayout();
@@ -67,38 +66,29 @@
             // 
             // btnNextStepResult
             // 
-            this.btnNextStepResult.Location = new System.Drawing.Point(310, 12);
+            this.btnNextStepResult.Location = new System.Drawing.Point(313, 14);
             this.btnNextStepResult.Name = "btnNextStepResult";
             this.btnNextStepResult.Size = new System.Drawing.Size(146, 23);
             this.btnNextStepResult.TabIndex = 2;
-            this.btnNextStepResult.Text = "NextStepResult";
+            this.btnNextStepResult.Text = "Розрахувати етапи";
             this.btnNextStepResult.UseVisualStyleBackColor = true;
             this.btnNextStepResult.Click += new System.EventHandler(this.btnNextStepResult_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(76, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 22);
-            this.textBox1.TabIndex = 3;
             // 
             // NextStepResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnNextStepResult);
             this.Controls.Add(this.dgvOther);
             this.Controls.Add(this.dGVMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "NextStepResult";
-            this.Text = "NextStepResult";
+            this.Text = "Наступні етапи";
             ((System.ComponentModel.ISupportInitialize)(this.dGVMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOther)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -107,6 +97,5 @@
         private System.Windows.Forms.DataGridView dGVMain;
         private System.Windows.Forms.DataGridView dgvOther;
         private System.Windows.Forms.Button btnNextStepResult;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

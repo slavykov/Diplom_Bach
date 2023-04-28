@@ -32,7 +32,6 @@
             this.btnStepResult = new System.Windows.Forms.Button();
             this.dgVresOth = new System.Windows.Forms.DataGridView();
             this.btnNextStep = new System.Windows.Forms.Button();
-            this.btnBackToMain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgVresMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVresOth)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +53,11 @@
             // 
             // btnStepResult
             // 
-            this.btnStepResult.Location = new System.Drawing.Point(247, 25);
+            this.btnStepResult.Location = new System.Drawing.Point(27, 25);
             this.btnStepResult.Name = "btnStepResult";
-            this.btnStepResult.Size = new System.Drawing.Size(159, 23);
+            this.btnStepResult.Size = new System.Drawing.Size(379, 23);
             this.btnStepResult.TabIndex = 1;
-            this.btnStepResult.Text = " FirstStepResult";
+            this.btnStepResult.Text = " Розрахувати перший етап";
             this.btnStepResult.UseVisualStyleBackColor = true;
             this.btnStepResult.Click += new System.EventHandler(this.btnStepResult_Click);
             // 
@@ -79,30 +78,19 @@
             // 
             // btnNextStep
             // 
-            this.btnNextStep.Location = new System.Drawing.Point(437, 25);
+            this.btnNextStep.Location = new System.Drawing.Point(638, 25);
             this.btnNextStep.Name = "btnNextStep";
             this.btnNextStep.Size = new System.Drawing.Size(148, 23);
             this.btnNextStep.TabIndex = 4;
-            this.btnNextStep.Text = "NextStepResult->";
+            this.btnNextStep.Text = "Наступний крок->";
             this.btnNextStep.UseVisualStyleBackColor = true;
             this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
-            // 
-            // btnBackToMain
-            // 
-            this.btnBackToMain.Location = new System.Drawing.Point(84, 25);
-            this.btnBackToMain.Name = "btnBackToMain";
-            this.btnBackToMain.Size = new System.Drawing.Size(114, 23);
-            this.btnBackToMain.TabIndex = 5;
-            this.btnBackToMain.Text = "<-backToMain";
-            this.btnBackToMain.UseVisualStyleBackColor = true;
-            this.btnBackToMain.Click += new System.EventHandler(this.btnBackToMain_Click);
             // 
             // FirstStepResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 450);
-            this.Controls.Add(this.btnBackToMain);
             this.Controls.Add(this.btnNextStep);
             this.Controls.Add(this.dgVresOth);
             this.Controls.Add(this.btnStepResult);
@@ -110,7 +98,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FirstStepResult";
-            this.Text = "FirstStepResult";
+            this.Text = "Перший етап розрахунків";
             ((System.ComponentModel.ISupportInitialize)(this.dgVresMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVresOth)).EndInit();
             this.ResumeLayout(false);
@@ -123,6 +111,5 @@
         private System.Windows.Forms.Button btnStepResult;
         private System.Windows.Forms.DataGridView dgVresOth;
         private System.Windows.Forms.Button btnNextStep;
-        private System.Windows.Forms.Button btnBackToMain;
     }
 }

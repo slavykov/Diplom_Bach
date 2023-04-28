@@ -109,30 +109,22 @@ namespace Diplom_Bach
                 }
             }
 
-            string str = "";
-
-           for(int i=0;i<gx.Count;i++)
-            {
-                str+= gx[i].ToString();
-            }
-
-           for(int i=0;i<c.Count;i++)
-            {
-                str+= c[i].ToString();
-            }
-
-           textBox1.Text = str;
+           
         }
 
 
         private void btnShowCalculate_Click(object sender, EventArgs e)
         {
-            stForm = new FirstStepResult(c, gx, rows, columns);
-            stForm.Show();
+
+                stForm = new FirstStepResult(c, gx, rows, columns);
+                stForm.Show();
+            
         }
 
         private void btnDatafromdgV_Click(object sender, EventArgs e)
         {
+            c.Clear();
+            gx.Clear();
             ReadData();
         }
     }

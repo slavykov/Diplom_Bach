@@ -23,29 +23,45 @@ namespace Diplom_Bach
         MainForm mainForm = new MainForm();
         FirstStepResult fstepResult = new FirstStepResult();
         Calculate calc = new Calculate();
+        FinalTable ftable;
 
         List<int> c;
         List<int> cLeft;
         List<int> cUp;
-        List<int> fc;
+        List<int> f1c;
         List<int> x;
         List<int> fccount;
         List<int> gx;
+        List<int> xnc;
+        List<int> fnc;
+        List<int> x1c;
+        
+        List<int> xfc;
+        List<int> ffc;
+
         int columns;
         int rows;
 
-        public NextStepResult(List<int> c,List<int> fc,List<int> gx, int columns,int rows)
+        
+
+        public NextStepResult(List<int> c,List<int> fc, List<int> gx, int columns, int rows, List<int> x1c)
         {
             InitializeComponent();
             this.c = c;
-            this.fc = fc;
-            this.columns= columns;
-            this.rows= rows;
-            cLeft= new List<int>();
+            f1c = fc;
+            this.columns = columns;
+            this.rows = rows;
+            cLeft = new List<int>();
             cUp = new List<int>();
             x = new List<int>();
+            this.x1c = x1c;
+            xfc = new List<int>();
+            ffc = new List<int>();
+            xnc = new List<int>();
+            fnc = new List<int>();
             fccount = new List<int>();
             this.gx = gx;
+            this.x1c = x1c;
         }
 
         private void AddtoC(List<int> c, List<int> cDif)
@@ -93,6 +109,11 @@ namespace Diplom_Bach
             }
         }
 
+        private void AddListtoFinalResult(List<int> xfc, List<int> ffc, List<int> xc, List<int> fc)
+        {
+            xfc.AddRange(xc);
+            ffc.AddRange(fc);
+        }
 
         private void btnNextStepResult_Click(object sender, EventArgs e)
         {
@@ -103,8 +124,7 @@ namespace Diplom_Bach
             AddtoC(c, cUp);
             fstepResult.AddColumnRows(dgvOther, rows);
 
-            List<int> x2c = new List<int>();
-            List<int> f2c = new List<int>();
+            AddListtoFinalResult(xfc, ffc, x1c, f1c);
          
             int col = columns;
 
@@ -113,36 +133,33 @@ namespace Diplom_Bach
             int iterator = 1;
             while (iterator < col-1)
             { 
-                InitFccount(fc, fccount);
-                calc.SecondStepCalculate(fc, x, cUp, cLeft, fccount, gx, rows, indexOfgx);
+                InitFccount(f1c, fccount);
+                calc.SecondStepCalculate(f1c, x, cUp, cLeft, fccount, gx, rows, indexOfgx);
                 AddXtoDgV(dGVMain, x, rows, columns);
-                calc.findMaxinRows(dGVMain, x2c, f2c, cUp, rows, columns);
-                SetFxFcTodGV(dgvOther, f2c, x2c, rows);
-                fc.Clear();
-                fc = f2c.GetRange(0, f2c.Count);
-                f2c.Clear();
-                x2c.Clear();
+                calc.findMaxinRows(dGVMain, xnc, fnc, cUp, rows, columns);
+                SetFxFcTodGV(dgvOther, fnc, xnc, rows);
+                f1c.Clear();
+                f1c = fnc.GetRange(0, fnc.Count);
+
+                AddListtoFinalResult(xfc, ffc, xnc, fnc);
+
+                fnc.Clear();
+                xnc.Clear();
                 x.Clear();
                 fccount.Clear();
                 indexOfgx = indexOfgx + rows;
                 iterator++;
-        }
-            
-            //x.Clear();
-            //fccount.Clear();
-            //InitFccount(f2c, fccount);
-            //calc.SecondStepCalculate(f2c, x, cUp, cLeft, fccount, gx, rows, rows + rows);
-            //AddXtoDgV(dGVMain, x, rows, columns);
-            //calc.findMaxinRows(dGVMain, x3c, f3c, cUp, rows, columns);
-            //SetFxFcTodGV(dgvOther, f3c, x3c, rows);
+                
+            }
 
-            //string str = "";
-            //for(int i=0;i<x1.Count;i++)
-            //{
-            //     str += x1[i].ToString();
-            // }
 
-            // textBox1.Text = str.ToString();
+            //(sender as Button).Enabled = false;
+
+            MessageBox.Show("Пораховано за " + iterator + " ітерацій(-ію)");
+            ftable = new FinalTable(xfc,ffc,cLeft,iterator);
+            ftable.Show();
+
+       
 
 
         }
