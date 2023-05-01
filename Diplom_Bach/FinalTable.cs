@@ -66,28 +66,28 @@ namespace Diplom_Bach
             }
         }
 
-        private void AddDatatoFinalTable(DataGridView dgV,List<int> c,int iterator,List<int> xfc,List<int> ffc)
+        private void AddDatatoFinalTable(DataGridView dgV,List<int> c,List<int> xfc,List<int> ffc)
         {
             for (int i = 0; i < c.Count; i++)
             {
-                dGVFinal.Rows[i].Cells[0].Value = c[i];
+                dgV.Rows[i].Cells[0].Value = c[i];
 
             }
 
             int k = 0;
             int h = 0;
-            for (int j = 1; j < (iterator * 2) + 1; j++)
+            for (int j = 1; j < dgV.Columns.Count; j++)
             {
-                for (int i = 0; i < c.Count; i++)
+                for (int i = 0; i < dgV.Rows.Count; i++)
                 {
                     if (j % 2 != 0)
                     {
-                        dGVFinal.Rows[i].Cells[j].Value = xfc[k];
+                        dgV.Rows[i].Cells[j].Value = xfc[k];
                         k++;
                     }
                     else
                     {
-                        dGVFinal.Rows[i].Cells[j].Value = ffc[h];
+                       dgV.Rows[i].Cells[j].Value = ffc[h];
                         h++;
                     }
 
@@ -98,10 +98,11 @@ namespace Diplom_Bach
 
         private void btnFinalResult_Click(object sender, EventArgs e)
         {
-            //string str= "";
-            //for(int i = 0; i < c.Count; i++)
+            //string str = "";
+            //for (int i = 0; i < xfc.Count; i++)
             //{
-            //    str += c[i].ToString();
+            //    str +=  xfc[i].ToString();
+            //    //str += "ffc= " + ffc[i].ToString();
             //}
 
             //textBox1.Text = str;
@@ -111,7 +112,7 @@ namespace Diplom_Bach
 
             AddColumnRowstoFinal(dGVFinal, (iterator * 2)+1, c.Count);
 
-            AddDatatoFinalTable(dGVFinal, c, iterator, xfc, ffc);
+            AddDatatoFinalTable(dGVFinal, c, xfc, ffc);
 
 
 

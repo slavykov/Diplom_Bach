@@ -31,9 +31,6 @@ namespace Diplom_Bach
                 x.Add(fc[i] + 0);
             }
 
-            
-
-            
             int b = 0;
             for (int i = 1; i < cUp.Count; i++)
             {
@@ -59,18 +56,23 @@ namespace Diplom_Bach
         {
             int maxinRows = (int)dgV.Rows[1].Cells[1].Value;
             int indexofMax = 0;
-            for (int i = 1; i < rows + 1; i++)
+            int stepformax = 0;
+            for (int i = 1; i < rows; i++)
             {
-                for (int j = 1; j < columns + 1; j++)
+                for (int j = 1; j < columns; j++)
                 {
                     if ((int)dgV.Rows[i].Cells[j].Value > maxinRows)
                     {
+                        
                         maxinRows = (int)dgV.Rows[i].Cells[j].Value;
-                        indexofMax = j;
+                        indexofMax = j-1;
+                        
                     }
+                    
 
                 }
-                xc.Add(cUp[indexofMax - 1]);
+                
+                xc.Add(cUp[indexofMax]);
                 fc.Add(maxinRows);
             }
         }

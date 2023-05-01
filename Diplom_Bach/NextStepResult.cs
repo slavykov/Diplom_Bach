@@ -96,9 +96,9 @@ namespace Diplom_Bach
         private void AddXtoDgV(DataGridView dgV,List<int> x,int rows, int columns)
         {
             int k = 0;
-            for (int j = 1; j < columns + 1; j++)
+            for (int j = 1; j < columns; j++)
             {
-                for (int i = 1; i < rows + 1; i++)
+                for (int i = 1; i < rows; i++)
                 {
                     {
                         dgV.Rows[i].Cells[j].Value = x[k];
@@ -117,26 +117,36 @@ namespace Diplom_Bach
 
         private void btnNextStepResult_Click(object sender, EventArgs e)
         {
-            mainForm.AddColumnRows(dGVMain, c.Count + 2, c.Count + 1);
+            mainForm.AddColumnRows(dGVMain, c.Count+2, rows+1);
             fstepResult.SetCtoDGV(dGVMain, rows, c, 0, 1, true);
             AddtoC(c, cLeft);
             fstepResult.SetCtoDGV(dGVMain, rows + 1, c, 1, 0, false);
             AddtoC(c, cUp);
             fstepResult.AddColumnRows(dgvOther, rows);
 
+
+
             AddListtoFinalResult(xfc, ffc, x1c, f1c);
-         
+
+
+
             int col = columns;
 
             int indexOfgx = rows;
+
+                //InitFccount(f1c, fccount);
+                //calc.SecondStepCalculate(f1c, x, cUp, cLeft, fccount, gx, rows, indexOfgx);
+                //AddXtoDgV(dGVMain, x, dGVMain.Rows.Count, dGVMain.Columns.Count);
+                //calc.findMaxinRows(dGVMain, xnc, fnc, cUp, dGVMain.Rows.Count, dGVMain.Columns.Count);
+                //SetFxFcTodGV(dgvOther, fnc, xnc, rows);
 
             int iterator = 1;
             while (iterator < col-1)
             { 
                 InitFccount(f1c, fccount);
                 calc.SecondStepCalculate(f1c, x, cUp, cLeft, fccount, gx, rows, indexOfgx);
-                AddXtoDgV(dGVMain, x, rows, columns);
-                calc.findMaxinRows(dGVMain, xnc, fnc, cUp, rows, columns);
+                AddXtoDgV(dGVMain, x, dGVMain.Rows.Count, dGVMain.Columns.Count);
+                calc.findMaxinRows(dGVMain, xnc, fnc, cUp, dGVMain.Rows.Count, dGVMain.Columns.Count);
                 SetFxFcTodGV(dgvOther, fnc, xnc, rows);
                 f1c.Clear();
                 f1c = fnc.GetRange(0, fnc.Count);
@@ -149,17 +159,17 @@ namespace Diplom_Bach
                 fccount.Clear();
                 indexOfgx = indexOfgx + rows;
                 iterator++;
-                
+
             }
 
 
-            //(sender as Button).Enabled = false;
+            (sender as Button).Enabled = false;
 
             MessageBox.Show("Пораховано за " + iterator + " ітерацій(-ію)");
-            ftable = new FinalTable(xfc,ffc,cLeft,iterator);
+            ftable = new FinalTable(xfc, ffc, cLeft, iterator);
             ftable.Show();
 
-       
+
 
 
         }

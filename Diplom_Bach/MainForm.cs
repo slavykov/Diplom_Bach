@@ -33,16 +33,16 @@ namespace Diplom_Bach
         private void btnGenGrid_Click(object sender, EventArgs e)
         {
            ClearGridView(gridInput);
-            try
-            {
+            if (Int32.Parse(txtBoxDep.Text) > 2 && Int32.Parse(textBox2.Text) > 1) {
                 columns = Int32.Parse(txtBoxDep.Text);
                 rows = Int32.Parse(textBox2.Text);
                 columns = columns + 1;
+                AddColumnRows(gridInput, columns, rows);
             }
-            catch {
-                MessageBox.Show("Введіть коректну кількість стовпців та строк!");
+            else { 
+                MessageBox.Show("Введіть коректну кількість стовпців та строк!(стовпців>2)");
             }
-           AddColumnRows(gridInput,columns,rows);
+           
         }
 
         // добавление к большому datagridView колонок и строк
