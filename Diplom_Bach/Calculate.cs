@@ -56,7 +56,7 @@ namespace Diplom_Bach
         {
             int maxinRows = (int)dgV.Rows[1].Cells[1].Value;
             int indexofMax = 0;
-            int stepformax = 0;
+          
             for (int i = 1; i < rows; i++)
             {
                 for (int j = 1; j < columns; j++)
