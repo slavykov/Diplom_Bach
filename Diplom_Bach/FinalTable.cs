@@ -19,7 +19,8 @@ namespace Diplom_Bach
         List<int> c;
         int iterator;
         List<int> rowForMax;
-        List<int> fxfcMax;
+        
+        Calculate calc;
 
         public FinalTable()
         {
@@ -34,7 +35,8 @@ namespace Diplom_Bach
             this.c = c;
             this.iterator = iterator;
             rowForMax = new List<int>();
-            fxfcMax = new List<int>();
+  
+            calc = new Calculate();
         }
 
         public void AddColumnRowstoFinal(DataGridView gridInput, int columns, int rows)
@@ -115,87 +117,65 @@ namespace Diplom_Bach
 
             AddDatatoFinalTable(dGVFinal, c, xfc, ffc);
 
-            //1.Запускаем цикл
-            // 2.Запись строки в лист
-            // 3.Сравнить элемент xc со следующим xc, сравнить элемент fc со следующим fc пока не найдем наибольшую пару
-            // 4. Находим результирующее в зависимости от условия, если да заканчиваем цикл, если нет то ищем в другой строке, которую находим по формуле
-      
             
-            bool accept = false;
+           List<int> fxfcMax = calc.findOptimalInFinal(dGVFinal, rowForMax,  c);
+            
 
-            int numRow = c.IndexOf(c.Max());
-            int dep = 0;
+            //bool accept = false;
 
-            while (!accept)
-            {
-                dep = 0;
-                int b = 0;
+            //int numRow = c.IndexOf(c.Max());
+            //int dep = 0;
 
-                for (int j = 1; j < dGVFinal.Columns.Count; j++)
-                {
-                    rowForMax.Add((int)dGVFinal.Rows[numRow].Cells[j].Value);
-                }
-
-
-                fxfcMax.Add(rowForMax[0]);
-                fxfcMax.Add(rowForMax[1]);
-
-
-                for (int i = 2; i < rowForMax.Count; i++)
-                {
-
-                    if (rowForMax[i] >= fxfcMax[b])
-                    {
-                        if (rowForMax[i + 1] > fxfcMax[b + 1])
-                        {
-                            fxfcMax[b] = rowForMax[i];
-                            fxfcMax[b + 1] = rowForMax[i + 1];
-                            dep++;
-                        }
-                    }
-
-                }
-
-                if (fxfcMax[0] == c.Max())
-                {
-                    accept = true;
-                    MessageBox.Show("Задача порахована");
-                }
-                else
-                {
-                    numRow = c.Max() - fxfcMax[0];
-                    accept= false;
-                    MessageBox.Show("Задача не порахована" + numRow.ToString());
-                }
-
-            }
-            //if (rowForMax[2] >= fxfcMax[0])
+            //while (!accept)
             //{
-            //    if (rowForMax[3] > fxfcMax[1])
+            //    dep = 0;
+            //    int b = 0;
+
+            //    for (int j = 1; j < dGVFinal.Columns.Count; j++)
             //    {
-            //        fxfcMax[0] = rowForMax[2];
-            //        fxfcMax[1] = rowForMax[3];
+            //        rowForMax.Add((int)dGVFinal.Rows[numRow].Cells[j].Value);
             //    }
-            //}
 
 
-            //if (rowForMax[4] >= fxfcMax[0])
-            //{
-            //    if (rowForMax[5] > fxfcMax[1])
+            //    fxfcMax.Add(rowForMax[0]);
+            //    fxfcMax.Add(rowForMax[1]);
 
+
+            //    for (int i = 2; i < rowForMax.Count; i++)
             //    {
-            //        fxfcMax[0] = rowForMax[4];
-            //        fxfcMax[1] = rowForMax[5];
+
+            //        if (rowForMax[i] >= fxfcMax[b])
+            //        {
+            //            if (rowForMax[i + 1] > fxfcMax[b + 1])
+            //            {
+            //                fxfcMax[b] = rowForMax[i];
+            //                fxfcMax[b + 1] = rowForMax[i + 1];
+            //                dep++;
+            //            }
+            //        }
+
             //    }
+
+            //    if (fxfcMax[0] == c.Max())
+            //    {
+            //        accept = true;
+            //        MessageBox.Show("Задача порахована");
+            //    }
+            //    else
+            //    {
+            //        numRow = rowForMax.IndexOf(c.Max() - fxfcMax[0]);
+            //        accept= false;
+            //        MessageBox.Show("Задача не порахована" + numRow.ToString());
+            //    }
+
             //}
-
-
+            
 
 
 
            
 
-            textBox1.Text ="Предприятие = " + (dep+1).ToString()  + "xc = " + fxfcMax[0].ToString() + "fc = " + fxfcMax[1].ToString();
+            textBox1.Text ="Предприятие = " + (fxfcMax[2]).ToString()  + "xc = " + fxfcMax[0].ToString() + "fc = " + fxfcMax[1].ToString();
 
 
 

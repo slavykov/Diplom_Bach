@@ -96,16 +96,30 @@ namespace Diplom_Bach
         // чтение данных из dgV
         private void ReadData()
         {
-           for (int i = 0; i < rows; i++)
+            btnShowCalculate.Enabled = true;
+            for (int i = 0; i < rows; i++)
            {
                c.Add(Convert.ToInt32(gridInput[0, i].Value));
            }
             
+
+
+
            for (int j = 1; j < columns; j++)
             {
                 for(int i = 0; i < rows; i++)
                 {
-                    gx.Add(Convert.ToInt32(gridInput[j, i].Value));
+                    if (Convert.ToInt32(gridInput[j, i].Value) <= Convert.ToInt32(gridInput[0, i].Value)){
+
+                        gx.Add(Convert.ToInt32(gridInput[j, i].Value));
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Невірно заповнена таблиця");
+                        btnShowCalculate.Enabled = false;
+                        break;
+                    }
                 }
             }
 
@@ -117,8 +131,17 @@ namespace Diplom_Bach
         {
 
                 stForm = new FirstStepResult(c, gx, rows, columns);
+                foreach (Form f in Application.OpenForms)
+                {
+                if (f.Name == "FirstStepResult")
+                {
+                    MessageBox.Show("Форма вже відкрита!");
+                    return;
+                }
+                }
+                
                 stForm.Show();
-            
+
         }
 
         private void btnDatafromdgV_Click(object sender, EventArgs e)

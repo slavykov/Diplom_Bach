@@ -131,20 +131,32 @@ namespace Diplom_Bach
             calc.FirstStepCalculate(c, gx, f1c, x1c, rows);
 
             SetFcXctoDGV(dgVresOth, rows, f1c, x1c);
-        }
-
-        private void btnBackToMain_Click(object sender, EventArgs e)
-        {
+            (sender as Button).Enabled = false;
 
         }
+
+        
 
 
         private void btnNextStep_Click(object sender, EventArgs e)
         {
            
                 nsR = new NextStepResult(c, f1c, gx, columns, rows,x1c);
-                nsR.Show();
-               
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "NextStepResult")
+                {
+                    MessageBox.Show("Форма вже відкрита!");
+                    return;
+                }
+            }
+
+            
+
+            nsR.Show();
+            (sender as Button).Enabled = false;
+
         }
 
         

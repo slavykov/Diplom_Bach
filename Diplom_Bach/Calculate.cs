@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace Diplom_Bach
 
         public void SecondStepCalculate(List<int> fc, List<int> x,List<int> cUp, List<int> cLeft, List<int> fccount,List<int> gx, int rows,int indexOfgx)
         {
+            
             for (int i = 0; i < rows; i++)
             {
                 x.Add(fc[i] + 0);
@@ -75,6 +77,65 @@ namespace Diplom_Bach
                 xc.Add(cUp[indexofMax]);
                 fc.Add(maxinRows);
             }
+        }
+
+        public List<int> findOptimalInFinal(DataGridView dGVFinal,List<int> rowForMax,List<int> c)
+        {
+            bool accept = false;
+            List<int> xcfcOpt =  new List<int>();
+            int MaxXc = 0;
+            int MaxFC = 0;
+
+            int numRow = c.IndexOf(c.Max());
+            int dep = 0;
+            
+
+            while (!accept)
+            {
+                dep = 0;
+                
+
+                for (int j = 1; j < dGVFinal.Columns.Count; j++)
+                {
+                    rowForMax.Add((int)dGVFinal.Rows[numRow].Cells[j].Value);
+                }
+
+
+              
+
+                for (int i = 0; i < rowForMax.Count-1; i++)
+                {
+
+                    if (rowForMax[i] >= MaxXc && rowForMax[i + 1] > MaxFC)
+                    {
+                        
+                            MaxXc = rowForMax[i];
+                            MaxFC = rowForMax[i + 1];
+                            dep++;
+                        
+                    }
+
+                }
+
+                if (MaxXc == c.Max())
+                {
+                    accept = true;
+                    MessageBox.Show("Задача порахована");
+                }
+                else
+                {
+                    numRow = rowForMax.IndexOf(c.Max() - MaxXc);
+                    accept = false;
+                    MessageBox.Show("Задача не порахована" + numRow.ToString());
+                }
+
+            }
+            xcfcOpt.Add(MaxXc);
+            xcfcOpt.Add(MaxFC);
+            xcfcOpt.Add(dep);
+
+            return xcfcOpt;
+
         }
 
 

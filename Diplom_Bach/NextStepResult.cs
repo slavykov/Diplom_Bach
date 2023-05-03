@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,6 +118,8 @@ namespace Diplom_Bach
 
         private void btnNextStepResult_Click(object sender, EventArgs e)
         {
+            
+
             mainForm.AddColumnRows(dGVMain, c.Count+2, rows+1);
             fstepResult.SetCtoDGV(dGVMain, rows, c, 0, 1, true);
             AddtoC(c, cLeft);
@@ -134,11 +137,7 @@ namespace Diplom_Bach
 
             int indexOfgx = rows;
 
-                //InitFccount(f1c, fccount);
-                //calc.SecondStepCalculate(f1c, x, cUp, cLeft, fccount, gx, rows, indexOfgx);
-                //AddXtoDgV(dGVMain, x, dGVMain.Rows.Count, dGVMain.Columns.Count);
-                //calc.findMaxinRows(dGVMain, xnc, fnc, cUp, dGVMain.Rows.Count, dGVMain.Columns.Count);
-                //SetFxFcTodGV(dgvOther, fnc, xnc, rows);
+                
 
             int iterator = 1;
             while (iterator < col-1)
@@ -170,7 +169,7 @@ namespace Diplom_Bach
             ftable.Show();
 
 
-
+           
 
         }
     }
