@@ -37,8 +37,15 @@
             this.InputGroupBox = new System.Windows.Forms.GroupBox();
             this.btnDatafromdgV = new System.Windows.Forms.Button();
             this.btnShowCalculate = new System.Windows.Forms.Button();
+            this.btnLoadFromExcel = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
+            this.lblColumn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridInput)).BeginInit();
             this.InputGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBoxDep
@@ -108,11 +115,11 @@
             this.InputGroupBox.Size = new System.Drawing.Size(258, 152);
             this.InputGroupBox.TabIndex = 6;
             this.InputGroupBox.TabStop = false;
-            this.InputGroupBox.Text = "Вхідні дані";
+            this.InputGroupBox.Text = "Вручну";
             // 
             // btnDatafromdgV
             // 
-            this.btnDatafromdgV.Location = new System.Drawing.Point(105, 216);
+            this.btnDatafromdgV.Location = new System.Drawing.Point(89, 368);
             this.btnDatafromdgV.Name = "btnDatafromdgV";
             this.btnDatafromdgV.Size = new System.Drawing.Size(143, 23);
             this.btnDatafromdgV.TabIndex = 8;
@@ -130,11 +137,72 @@
             this.btnShowCalculate.UseVisualStyleBackColor = true;
             this.btnShowCalculate.Click += new System.EventHandler(this.btnShowCalculate_Click);
             // 
+            // btnLoadFromExcel
+            // 
+            this.btnLoadFromExcel.Location = new System.Drawing.Point(103, 108);
+            this.btnLoadFromExcel.Name = "btnLoadFromExcel";
+            this.btnLoadFromExcel.Size = new System.Drawing.Size(121, 23);
+            this.btnLoadFromExcel.TabIndex = 10;
+            this.btnLoadFromExcel.Text = "Загрузити";
+            this.btnLoadFromExcel.UseVisualStyleBackColor = true;
+            this.btnLoadFromExcel.Click += new System.EventHandler(this.btnLoadFromExcel_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblColumn);
+            this.groupBox1.Controls.Add(this.lblRow);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnLoadFromExcel);
+            this.groupBox1.Location = new System.Drawing.Point(24, 185);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(258, 152);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Загрузка з Excel";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Кількість відділів";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Кількість 2";
+            // 
+            // lblRow
+            // 
+            this.lblRow.AutoSize = true;
+            this.lblRow.Location = new System.Drawing.Point(129, 38);
+            this.lblRow.Name = "lblRow";
+            this.lblRow.Size = new System.Drawing.Size(14, 16);
+            this.lblRow.TabIndex = 13;
+            this.lblRow.Text = "0";
+            // 
+            // lblColumn
+            // 
+            this.lblColumn.AutoSize = true;
+            this.lblColumn.Location = new System.Drawing.Point(129, 68);
+            this.lblColumn.Name = "lblColumn";
+            this.lblColumn.Size = new System.Drawing.Size(14, 16);
+            this.lblColumn.TabIndex = 14;
+            this.lblColumn.Text = "0";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 474);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnShowCalculate);
             this.Controls.Add(this.btnDatafromdgV);
             this.Controls.Add(this.InputGroupBox);
@@ -146,6 +214,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridInput)).EndInit();
             this.InputGroupBox.ResumeLayout(false);
             this.InputGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,6 +231,12 @@
         private System.Windows.Forms.GroupBox InputGroupBox;
         private System.Windows.Forms.Button btnDatafromdgV;
         private System.Windows.Forms.Button btnShowCalculate;
+        private System.Windows.Forms.Button btnLoadFromExcel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblColumn;
+        private System.Windows.Forms.Label lblRow;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
 

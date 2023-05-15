@@ -21,28 +21,33 @@ namespace Diplom_Bach
         private List<int> c;
         private List<int> gx;
         FirstStepResult stForm;
+        WorkWithExcel workWithExcel;
 
         public MainForm()
         {
             InitializeComponent();
             c = new List<int>();
             gx = new List<int>();
+            workWithExcel= new WorkWithExcel();
             
         }
 
         private void btnGenGrid_Click(object sender, EventArgs e)
         {
-           ClearGridView(gridInput);
-            if (Int32.Parse(txtBoxDep.Text) > 2 && Int32.Parse(textBox2.Text) > 1) {
+            ClearGridView(gridInput);
+
+            if (Int32.Parse(txtBoxDep.Text) > 2 && Int32.Parse(textBox2.Text) > 1)
+            {
                 columns = Int32.Parse(txtBoxDep.Text);
                 rows = Int32.Parse(textBox2.Text);
                 columns = columns + 1;
                 AddColumnRows(gridInput, columns, rows);
             }
-            else { 
+            else
+            {
                 MessageBox.Show("Введіть коректну кількість стовпців та строк!(стовпців>2)");
             }
-           
+            gridInput.ReadOnly = false;
         }
 
         // добавление к большому datagridView колонок и строк
@@ -69,8 +74,15 @@ namespace Diplom_Bach
         // очистка dataGridView
         public void ClearGridView(DataGridView dgV)
         {
-           dgV.Columns.Clear();
-            dgV.Rows.Clear();
+            if (dgV.DataSource != null)
+            {
+                dgV.DataSource = null;
+            }
+            dgV.Columns.Clear();
+                dgV.Rows.Clear();
+            
+           
+           
         }
 
         // событие для отслеживания ввода в dGV, вводяться только числа
@@ -149,6 +161,17 @@ namespace Diplom_Bach
             c.Clear();
             gx.Clear();
             ReadData();
+        }
+
+        private void btnLoadFromExcel_Click(object sender, EventArgs e)
+        {
+            ClearGridView(gridInput);
+            workWithExcel.LoadFromExcelToDataGrid(gridInput, out rows, out columns);
+            lblRow.Text = rows.ToString();
+            lblColumn.Text = columns.ToString();
+            columns = columns + 1;
+
+            gridInput.ReadOnly= true;
         }
     }
 }
