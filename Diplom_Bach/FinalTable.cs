@@ -19,7 +19,7 @@ namespace Diplom_Bach
         List<int> c;
         int iterator;
         List<int> rowForMax;
-        
+        WorkWithExcelandWord workWithDoc;
         Calculate calc;
 
         public FinalTable()
@@ -35,7 +35,7 @@ namespace Diplom_Bach
             this.c = c;
             this.iterator = iterator;
             rowForMax = new List<int>();
-  
+            workWithDoc= new WorkWithExcelandWord();
             calc = new Calculate();
         }
 
@@ -119,66 +119,12 @@ namespace Diplom_Bach
 
             
            List<int> fxfcMax = calc.findOptimalInFinal(dGVFinal, rowForMax,  c);
-            
-
-            //bool accept = false;
-
-            //int numRow = c.IndexOf(c.Max());
-            //int dep = 0;
-
-            //while (!accept)
-            //{
-            //    dep = 0;
-            //    int b = 0;
-
-            //    for (int j = 1; j < dGVFinal.Columns.Count; j++)
-            //    {
-            //        rowForMax.Add((int)dGVFinal.Rows[numRow].Cells[j].Value);
-            //    }
-
-
-            //    fxfcMax.Add(rowForMax[0]);
-            //    fxfcMax.Add(rowForMax[1]);
-
-
-            //    for (int i = 2; i < rowForMax.Count; i++)
-            //    {
-
-            //        if (rowForMax[i] >= fxfcMax[b])
-            //        {
-            //            if (rowForMax[i + 1] > fxfcMax[b + 1])
-            //            {
-            //                fxfcMax[b] = rowForMax[i];
-            //                fxfcMax[b + 1] = rowForMax[i + 1];
-            //                dep++;
-            //            }
-            //        }
-
-            //    }
-
-            //    if (fxfcMax[0] == c.Max())
-            //    {
-            //        accept = true;
-            //        MessageBox.Show("Задача порахована");
-            //    }
-            //    else
-            //    {
-            //        numRow = rowForMax.IndexOf(c.Max() - fxfcMax[0]);
-            //        accept= false;
-            //        MessageBox.Show("Задача не порахована" + numRow.ToString());
-            //    }
-
-            //}
-            
-
-
-
-           
+                      
 
             textBox1.Text ="Предприятие = " + (fxfcMax[2]).ToString()  + "xc = " + fxfcMax[0].ToString() + "fc = " + fxfcMax[1].ToString();
 
-
-
+            workWithDoc.DownloadTheResultToWordFile(fxfcMax[2], fxfcMax[0], fxfcMax[1]);
+            
 
         }
 

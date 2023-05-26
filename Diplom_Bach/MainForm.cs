@@ -21,14 +21,14 @@ namespace Diplom_Bach
         private List<int> c;
         private List<int> gx;
         FirstStepResult stForm;
-        WorkWithExcel workWithExcel;
+        WorkWithExcelandWord workWithExcel;
 
         public MainForm()
         {
             InitializeComponent();
             c = new List<int>();
             gx = new List<int>();
-            workWithExcel= new WorkWithExcel();
+            workWithExcel= new WorkWithExcelandWord();
             
         }
 
@@ -167,8 +167,8 @@ namespace Diplom_Bach
         {
             ClearGridView(gridInput);
             workWithExcel.LoadFromExcelToDataGrid(gridInput, out rows, out columns);
-            lblRow.Text = rows.ToString();
-            lblColumn.Text = columns.ToString();
+            lblRow.Text = columns.ToString();
+            lblColumn.Text = rows.ToString();
             columns = columns + 1;
 
             gridInput.ReadOnly= true;

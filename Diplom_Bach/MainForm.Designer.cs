@@ -94,6 +94,10 @@
             // 
             this.gridInput.AllowUserToAddRows = false;
             this.gridInput.AllowUserToDeleteRows = false;
+            this.gridInput.AllowUserToResizeColumns = false;
+            this.gridInput.AllowUserToResizeRows = false;
+            this.gridInput.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridInput.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridInput.Location = new System.Drawing.Point(329, 27);
             this.gridInput.Name = "gridInput";
@@ -143,7 +147,7 @@
             this.btnLoadFromExcel.Name = "btnLoadFromExcel";
             this.btnLoadFromExcel.Size = new System.Drawing.Size(121, 23);
             this.btnLoadFromExcel.TabIndex = 10;
-            this.btnLoadFromExcel.Text = "Загрузити";
+            this.btnLoadFromExcel.Text = "Завантажити";
             this.btnLoadFromExcel.UseVisualStyleBackColor = true;
             this.btnLoadFromExcel.Click += new System.EventHandler(this.btnLoadFromExcel_Click);
             // 
