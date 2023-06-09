@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -89,13 +90,10 @@ namespace Diplom_Bach
             }    
         }
 
-        public void DownloadTheResultToWordFile(int dep, int xc, int fc)
+        public void DownloadTheResultToWordFile(List<int> fxfcopt)
         {
-
+            int j = 0;
             Word._Application word_app = new Word.ApplicationClass();
-
-
-            
 
             object missing = Type.Missing;
             Word._Document word_doc = word_app.Documents.Add(
@@ -105,15 +103,30 @@ namespace Diplom_Bach
             para.Range.Text = "Результати розрахунків";
             object style_name = "Заголовок 1";
             para.Range.set_Style(ref style_name);
-            para.Range.InsertParagraphAfter();
 
-            para.Range.Text = "Підприємству " + dep.ToString() +
-            " необхідно виділити xc = " + xc.ToString() +
-            " fc = " + fc.ToString();
+            if (fxfcopt.Count > 3)
+            {
+                for (int i = 0; i < fxfcopt.Count/3; i++)
+                {
+                    para.Range.InsertParagraphAfter();
 
+                    para.Range.Text = "Підприємству " + fxfcopt[j].ToString() +
+                    " необхідно виділити xc = " + fxfcopt[j+1].ToString() +
+                    " fc = " + fxfcopt[j+2].ToString();
+                    
+                    para.Range.InsertParagraphAfter();
+                    j = j + 3 ;
+                }
+            }else
+            {
+                para.Range.InsertParagraphAfter();
 
-            para.Range.InsertParagraphAfter();
+                para.Range.Text = "Підприємству " + fxfcopt[0].ToString() +
+                " необхідно виділити xc = " + fxfcopt[1].ToString() +
+                " fc = " + fxfcopt[2].ToString();
 
+                para.Range.InsertParagraphAfter();
+            }
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Word document|*.doc";

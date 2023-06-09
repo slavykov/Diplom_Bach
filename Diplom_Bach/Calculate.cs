@@ -79,63 +79,75 @@ namespace Diplom_Bach
             }
         }
 
-        public List<int> findOptimalInFinal(DataGridView dGVFinal,List<int> rowForMax,List<int> c)
+        public List<int> findOptimalInFinal(DataGridView dGVFinal, List<int> rowForMax, List<int> c)
         {
             bool accept = false;
-            List<int> xcfcOpt =  new List<int>();
+            List<int> xcfcOpt = new List<int>();
+
+            List<int> xcOdd = new List<int>();
+            List<int> fcNotOdd = new List<int>();
+
             int MaxXc = 0;
             int MaxFC = 0;
 
             int numRow = c.IndexOf(c.Max());
             int dep = 0;
-            
+
 
             while (!accept)
             {
                 dep = 0;
-                
+                MaxXc= 0;
+                MaxFC= 0;
+                xcOdd.Clear();
+                fcNotOdd.Clear();
+                rowForMax.Clear();
 
                 for (int j = 1; j < dGVFinal.Columns.Count; j++)
                 {
                     rowForMax.Add((int)dGVFinal.Rows[numRow].Cells[j].Value);
                 }
 
-
-              
-
-                for (int i = 0; i < rowForMax.Count-1; i++)
+                for (int i = 0; i < rowForMax.Count; i++)
                 {
-
-                    if (rowForMax[i] >= MaxXc && rowForMax[i + 1] > MaxFC)
-                    {
-                        
-                            MaxXc = rowForMax[i];
-                            MaxFC = rowForMax[i + 1];
-                            dep++;
-                        
-                    }
+                    if (i % 2 == 0)
+                        xcOdd.Add(rowForMax[i]);
+                    else
+                        fcNotOdd.Add(rowForMax[i]);
 
                 }
 
-                if (MaxXc == c.Max())
+                for (int i = 0; i < fcNotOdd.Count; i++)
                 {
-                    accept = true;
+                    if (fcNotOdd[i] > MaxFC)
+                    {
+                        MaxFC = fcNotOdd[i];
+                        MaxXc = xcOdd[i];
+                        dep = i;
+                    }
+                }
+
+                xcfcOpt.Add(dep + 1);
+                xcfcOpt.Add(MaxXc);
+                xcfcOpt.Add(MaxFC);
+                
+
+                if (MaxXc == c[numRow])
+                {
+                    
                     MessageBox.Show("Задача порахована");
+                    accept = true;
                 }
                 else
                 {
-                    numRow = rowForMax.IndexOf(c.Max() - MaxXc);
+                    numRow = rowForMax.IndexOf(c[numRow] - MaxXc)+1;
                     accept = false;
-                    MessageBox.Show("Задача не порахована" + numRow.ToString());
                 }
-
             }
-            xcfcOpt.Add(MaxXc);
-            xcfcOpt.Add(MaxFC);
-            xcfcOpt.Add(dep);
+               
+                
 
-            return xcfcOpt;
-
+                return xcfcOpt;
         }
 
 

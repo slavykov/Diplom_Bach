@@ -39,10 +39,10 @@
             this.btnShowCalculate = new System.Windows.Forms.Button();
             this.btnLoadFromExcel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblRow = new System.Windows.Forms.Label();
             this.lblColumn = new System.Windows.Forms.Label();
+            this.lblRow = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridInput)).BeginInit();
             this.InputGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -50,14 +50,14 @@
             // 
             // txtBoxDep
             // 
-            this.txtBoxDep.Location = new System.Drawing.Point(138, 27);
+            this.txtBoxDep.Location = new System.Drawing.Point(82, 37);
             this.txtBoxDep.Name = "txtBoxDep";
             this.txtBoxDep.Size = new System.Drawing.Size(100, 22);
             this.txtBoxDep.TabIndex = 0;
             // 
             // btnGenGrid
             // 
-            this.btnGenGrid.Location = new System.Drawing.Point(103, 113);
+            this.btnGenGrid.Location = new System.Drawing.Point(82, 113);
             this.btnGenGrid.Name = "btnGenGrid";
             this.btnGenGrid.Size = new System.Drawing.Size(121, 23);
             this.btnGenGrid.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(138, 68);
+            this.textBox2.Location = new System.Drawing.Point(82, 85);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 2;
@@ -75,20 +75,20 @@
             // lblDep
             // 
             this.lblDep.AutoSize = true;
-            this.lblDep.Location = new System.Drawing.Point(16, 30);
+            this.lblDep.Location = new System.Drawing.Point(62, 18);
             this.lblDep.Name = "lblDep";
-            this.lblDep.Size = new System.Drawing.Size(116, 16);
+            this.lblDep.Size = new System.Drawing.Size(149, 16);
             this.lblDep.TabIndex = 3;
-            this.lblDep.Text = "Кількість відділів";
+            this.lblDep.Text = "Кількість підприємств";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 68);
+            this.label2.Location = new System.Drawing.Point(6, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.Size = new System.Drawing.Size(287, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Кількість 2";
+            this.label2.Text = "Кількість рядів для розподіляємих ресурсів";
             // 
             // gridInput
             // 
@@ -116,7 +116,7 @@
             this.InputGroupBox.Controls.Add(this.lblDep);
             this.InputGroupBox.Location = new System.Drawing.Point(24, 27);
             this.InputGroupBox.Name = "InputGroupBox";
-            this.InputGroupBox.Size = new System.Drawing.Size(258, 152);
+            this.InputGroupBox.Size = new System.Drawing.Size(299, 152);
             this.InputGroupBox.TabIndex = 6;
             this.InputGroupBox.TabStop = false;
             this.InputGroupBox.Text = "Вручну";
@@ -143,7 +143,7 @@
             // 
             // btnLoadFromExcel
             // 
-            this.btnLoadFromExcel.Location = new System.Drawing.Point(103, 108);
+            this.btnLoadFromExcel.Location = new System.Drawing.Point(90, 108);
             this.btnLoadFromExcel.Name = "btnLoadFromExcel";
             this.btnLoadFromExcel.Size = new System.Drawing.Size(121, 23);
             this.btnLoadFromExcel.TabIndex = 10;
@@ -160,28 +160,19 @@
             this.groupBox1.Controls.Add(this.btnLoadFromExcel);
             this.groupBox1.Location = new System.Drawing.Point(24, 185);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(258, 152);
+            this.groupBox1.Size = new System.Drawing.Size(299, 152);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Загрузка з Excel";
             // 
-            // label1
+            // lblColumn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 16);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Кількість відділів";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Кількість 2";
+            this.lblColumn.AutoSize = true;
+            this.lblColumn.Location = new System.Drawing.Point(129, 69);
+            this.lblColumn.Name = "lblColumn";
+            this.lblColumn.Size = new System.Drawing.Size(14, 16);
+            this.lblColumn.TabIndex = 14;
+            this.lblColumn.Text = "0";
             // 
             // lblRow
             // 
@@ -192,14 +183,23 @@
             this.lblRow.TabIndex = 13;
             this.lblRow.Text = "0";
             // 
-            // lblColumn
+            // label3
             // 
-            this.lblColumn.AutoSize = true;
-            this.lblColumn.Location = new System.Drawing.Point(129, 68);
-            this.lblColumn.Name = "lblColumn";
-            this.lblColumn.Size = new System.Drawing.Size(14, 16);
-            this.lblColumn.TabIndex = 14;
-            this.lblColumn.Text = "0";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(287, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Кількість рядів для розподіляємих ресурсів";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Кількість підприємств";
             // 
             // MainForm
             // 
@@ -214,7 +214,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Оптимізація динамічним методом";
+            this.Text = "Оптимальний розподіл методом динамічного програмування";
             ((System.ComponentModel.ISupportInitialize)(this.gridInput)).EndInit();
             this.InputGroupBox.ResumeLayout(false);
             this.InputGroupBox.PerformLayout();

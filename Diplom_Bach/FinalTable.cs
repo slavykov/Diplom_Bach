@@ -121,9 +121,9 @@ namespace Diplom_Bach
            List<int> fxfcMax = calc.findOptimalInFinal(dGVFinal, rowForMax,  c);
                       
 
-            textBox1.Text ="Предприятие = " + (fxfcMax[2]).ToString()  + "xc = " + fxfcMax[0].ToString() + "fc = " + fxfcMax[1].ToString();
+            //textBox1.Text ="Предприятие = " + (fxfcMax[2]).ToString()  + "xc = " + fxfcMax[0].ToString() + "fc = " + fxfcMax[1].ToString() + ", " + fxfcMax[5].ToString() + "," + fxfcMax[3].ToString() + "," + fxfcMax[4].ToString();
 
-            workWithDoc.DownloadTheResultToWordFile(fxfcMax[2], fxfcMax[0], fxfcMax[1]);
+            workWithDoc.DownloadTheResultToWordFile(fxfcMax);
             
 
         }
